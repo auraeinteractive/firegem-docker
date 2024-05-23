@@ -8,8 +8,7 @@ version of Firegem CMS on your set-up.
 First of all, install the requirements:
 
 ```bash
-git clone https://github.com/autocaret/Firegem/
-cd Firegem && git checkout release/2.5.0
+bash requirements.sh
 ```
 
 # Docker
