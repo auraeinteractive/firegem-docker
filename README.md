@@ -8,7 +8,7 @@ version of Firegem CMS on your set-up.
 ## How to build docker image
 
 ```bash
-docker build -t firegemcms ./docker/
+docker build -t firegemcms ./
 ```
 
 ## Run the Docker
