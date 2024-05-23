@@ -7,12 +7,12 @@ RUN apt-get update && \
 		build-essential \
 		mysql-server \
 		apache2 \
-		php-7.4 \
-		php-mysqli-7.4 \
-		php-gd-7.4 \
-		php-zip-7.4 \
-		php-curl-7.4 \
-		libapache2-mod-php-7.4 \
+		php7.4 \
+		php7.4-mysqli \
+		php7.4-gd \
+		php7.4-zip \
+		php7.4-curl \
+		libapache2-mod-php7.4 \
 		vim \
 		curl \
 		wget \

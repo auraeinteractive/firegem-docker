@@ -29,3 +29,18 @@ docker exec -it firegemcms-container bash
 docker rmi firegemcms
 ```
 
+# Logging into Firegem
+
+Once Firegem CMS has been set up through building the docker image, you can 
+access your site via:
+
+ * https://myfiregemsite.com/
+ 
+Edit your hosts file and set myfiregemsite.com to the IP address of your docker.
+
+Log into Firegem here:
+
+ * https://myfiregemsite.com/admin.php
+ * username: firegem
+ * password: admin
+
