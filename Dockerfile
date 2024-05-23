@@ -1,6 +1,8 @@
 # Use the official latest Ubuntu base image
 FROM ubuntu:20.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Update the package list and install required packages
 RUN apt-get update && \
 	apt-get install -y software-properties-common \
@@ -27,16 +29,13 @@ RUN a2enmod proxy_http
 # Copy custom virtual host configuration
 COPY ./assets/000-default.conf /etc/apache2/sites-available/000-default.conf
 
-# Copy the website files to the Apache default directory
-WORKDIR /var/www/html/
-COPY ./html/ .
-
 # Remove the default index.html
 RUN rm /var/www/html/index.html
 
 # Copy database and init script
-COPY ./init-db.sh /docker-entrypoint-initdb.d/
-COPY ./init-db.sql /docker-entrypoint-initdb.d/
+COPY ./assets/init-system.sh /docker-entrypoint-initdb.d/
+COPY ./assets/arenacore.sql /docker-entrypoint-initdb.d/
+COPY Firegem/. /tmp/
 
 # Expose port 80 for Apache
 EXPOSE 80
@@ -49,4 +48,6 @@ RUN chmod +x /docker-entrypoint-initdb.d/init-system.sh
 
 # Start the initialization script
 CMD ["/docker-entrypoint-initdb.d/init-system.sh"]
+
+
 
