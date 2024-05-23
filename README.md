@@ -3,6 +3,15 @@
 A docker image for Firegem CMS. Gets you quickly up and running with the latest
 version of Firegem CMS on your set-up.
 
+## Before you do anything
+
+First of all, install the requirements:
+
+```bash
+git clone https://github.com/autocaret/Firegem/
+cd Firegem && git checkout release/2.5.0
+```
+
 # Docker
 
 ## How to build docker image
