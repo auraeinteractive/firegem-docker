@@ -49,5 +49,3 @@ RUN chmod +x /docker-entrypoint-initdb.d/init-system.sh
 # Start the initialization script
 CMD ["/docker-entrypoint-initdb.d/init-system.sh"]
 
-
-
