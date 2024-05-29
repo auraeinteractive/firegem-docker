@@ -34,14 +34,13 @@ RUN rm /var/www/html/index.html
 
 # Copy database and init script
 COPY ./assets/init-system.sh /docker-entrypoint-initdb.d/
-COPY ./assets/arenacore.sql /docker-entrypoint-initdb.d/
-COPY Firegem/. /tmp/
+COPY ./assets/firecore.sql /docker-entrypoint-initdb.d/
+COPY ./assets/firegem.sql /docker-entrypoint-initdb.d/
+RUN mkdir /tmp/Firegem
+COPY Firegem/. /tmp/Firegem
 
 # Expose port 80 for Apache
 EXPOSE 80
-
-# Restart MySQL service
-RUN service mysql restart
 
 # Make the initialization script executable
 RUN chmod +x /docker-entrypoint-initdb.d/init-system.sh

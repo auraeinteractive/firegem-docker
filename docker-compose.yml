@@ -17,7 +17,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "8088:80"
+      - "8188:80"
     networks:
       - firegem-network
 
