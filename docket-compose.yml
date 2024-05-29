@@ -1,0 +1,23 @@
+version: '3.3'
+
+networks:
+  firegem-network:
+    external: true
+
+services:
+  firegem:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: firegem-docker
+    container_name: firegem-docker-container
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "8088:80"
+    networks:
+      - firegem-network
+
