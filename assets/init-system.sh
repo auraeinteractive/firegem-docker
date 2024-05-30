@@ -41,11 +41,16 @@ init_db() {
 	USE firegem; source /docker-entrypoint-initdb.d/firegem.sql;"
 }
 
+# Start mysql server!
+service mysql start
+
 # Get it on!
 require_firebase;
 create_database;
 create_mysql_user;
+init_db;
 
 # Dummy just to allow me to inspect
-exec "tail -f /var/log/mysql/error.log"
+#exec "tail -f /var/log/mysql/error.log"
+tail -f /docker-entrypoint-initdb.d/Firegem/MPL.txt
 

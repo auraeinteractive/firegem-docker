@@ -45,8 +45,6 @@ EXPOSE 80
 # Make the initialization script executable
 RUN chmod +x /docker-entrypoint-initdb.d/init-system.sh
 
-RUN service mysql start
-
 # Start the initialization script
 CMD ["/docker-entrypoint-initdb.d/init-system.sh"]
 
