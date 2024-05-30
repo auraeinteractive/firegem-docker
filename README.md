@@ -1,40 +1,28 @@
 # firegem-docker
 
-A docker image for Firegem CMS. Gets you quickly up and running with the latest
-version of Firegem CMS on your set-up.
+A docker image for Firegem CMS. Gets you quickly up and running with the latest version of Firegem CMS on your set-up.
 
-## Before you do anything
-
-First of all, install the requirements:
-
-```bash
-bash requirements.sh
-```
+This docker uses an .env file with some default usernames and password for the database and similar settings. Make sure to review this file in the repository folder (e.g. "nano ./.env").
 
 # Docker
 
-## How to build docker image
+## How to build and run the docker image
 
 ```bash
-docker build -t firegemcms ./
-```
-
-## Run the Docker
-
-```bash
-docker run -d -p 8088:80 --name firegemcms-container firegemcms
+docker-compose up --build
 ```
 
 ## If you want to enter the docker container
 
 ```bash
-docker exec -it firegemcms-container bash
+docker exec -it firegem-docker-container bash
 ```
 
-## If you want to re-build the image for some reason, do this:
+## If you want to remove the image and container for some reason, do this:
 
 ```bash
-docker rmi firegemcms
+docker rmi firegem-docker
+docker rm firegem-docker-container
 ```
 
 # Logging into Firegem

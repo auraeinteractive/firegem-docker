@@ -18,6 +18,7 @@ RUN apt-get update && \
 		vim \
 		curl \
 		wget \
+		git \
 		nano && \
 	apt-get clean
 
@@ -34,16 +35,17 @@ RUN rm /var/www/html/index.html
 
 # Copy database and init script
 COPY ./assets/init-system.sh /docker-entrypoint-initdb.d/
+COPY ./assets/requirements.sh /docker-entrypoint-initdb.d/
 COPY ./assets/firecore.sql /docker-entrypoint-initdb.d/
 COPY ./assets/firegem.sql /docker-entrypoint-initdb.d/
-RUN mkdir /tmp/Firegem
-COPY Firegem/. /tmp/Firegem
 
 # Expose port 80 for Apache
 EXPOSE 80
 
 # Make the initialization script executable
 RUN chmod +x /docker-entrypoint-initdb.d/init-system.sh
+
+RUN service mysql start
 
 # Start the initialization script
 CMD ["/docker-entrypoint-initdb.d/init-system.sh"]
