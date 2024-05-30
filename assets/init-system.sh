@@ -2,15 +2,17 @@
 
 # Function to manage Firegem from official repo
 require_firebase() {
+
+	cd /docker-entrypoint-initdb.d/
+
 	bash requirements.sh
 
-	cp -R /tmp/Firegem/admin /var/www/html/
-	cp -R /tmp/Firegem/lib /var/www/html/
-	cp -R /tmp/Firegem/web /var/www/html/
-	cp -R /tmp/Firegem/admin/admin.php /var/www/html/
-	cp -R /tmp/Firegem/lib/htaccess /var/www/html/.htaccess
-	cp -R /tmp/Firegem/web/index.php /var/www/html/
-	rm -fr /tmp/Firegem
+	cp -R Firegem/admin /var/www/html/
+	cp -R Firegem/lib /var/www/html/
+	cp -R Firegem/web /var/www/html/
+	cp -R Firegem/admin/admin.php /var/www/html/
+	cp -R Firegem/lib/htaccess /var/www/html/.htaccess
+	cp -R Firegem/web/index.php /var/www/html/
 
 	mkdir -p /var/www/upload
 	mkdir -p /var/www/upload/images-master
